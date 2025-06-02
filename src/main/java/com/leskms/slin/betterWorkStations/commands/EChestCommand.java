@@ -28,7 +28,7 @@ public class EChestCommand implements CommandExecutor {
                 return true;
             }
             Player target = Bukkit.getPlayerExact(args[0]);
-            if (!(target == player)){
+            if (target == null){
                 sender.sendMessage(String.format("Player %s does not exist or isn't online", (player.getDisplayName())));
                 return true;
             }
