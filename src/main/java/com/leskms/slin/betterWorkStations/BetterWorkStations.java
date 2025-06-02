@@ -20,5 +20,6 @@ public final class BetterWorkStations extends JavaPlugin {
     @Override
     public void onDisable() {
         // Plugin shutdown logic
+        System.out.println("bye from my better workstations");
     }
 }

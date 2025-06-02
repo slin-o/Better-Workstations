@@ -9,20 +9,19 @@ import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.ItemType;
 
 import java.util.Arrays;
-import java.util.stream.Collectors;
 
 import static com.leskms.slin.betterWorkStations.Tools.InvTools.HasItem;
 
 public class BasicWorkStationCommand implements CommandExecutor {
 
-    private ItemType[] itemTypes;
-    private InventoryType invType;
-    private String name;
-    private String itemName;
-    public BasicWorkStationCommand(InventoryType inventory, String name,String itemName, ItemType... items) {
+    private final ItemType[] itemTypes;
+    private final InventoryType invType;
+    private final String id;
+    private final String itemName;
+    public BasicWorkStationCommand(InventoryType inventory, String id,String itemName, ItemType... items) {
         this.invType = inventory;
         this.itemTypes = items;
-        this.name = name;
+        this.id = id;
         this.itemName = itemName;
     }
 
@@ -36,7 +35,7 @@ public class BasicWorkStationCommand implements CommandExecutor {
             return false;
         }
 
-        if (sender.hasPermission("betterworkstations."+ this.name +".bypass-workbench") || Arrays.stream(this.itemTypes).anyMatch(x -> HasItem(player,x)) ){
+        if (sender.hasPermission("betterworkstations."+ this.id +".bypass-workbench") || Arrays.stream(this.itemTypes).anyMatch(x -> HasItem(player,x)) ){
             player.openInventory(Bukkit.createInventory(player, this.invType));
         } else {
             player.sendMessage("You need "+ this.itemName +" in your inventory to use this command");
