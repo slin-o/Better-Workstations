@@ -1,0 +1,38 @@
+name: BetterWorkStations
+version: '1.0-SNAPSHOT'
+main: com.leskms.slin.betterWorkStations.BetterWorkStations
+api-version: '1.21'
+commands:
+  echest:
+    description: Opens your ender chest
+    usage: "Usage: /<command>"
+  craft:
+    description: Opens crafting table
+    usage: "Usage: /<command>"
+  anvil:
+    aliases: combine
+    description: Opens anvil inventory
+    usage: "Usage: /<command>"
+permissions:
+  betterworkstations.bypass-workbench:
+    description: Allows bypassing workbench item requirement globally for all categories.
+    default: op
+    children:
+      betterworkstations.crafting.bypass-workbench: true
+      betterworkstations.echest.bypass-workbench: true
+      betterworkstations.anvil.bypass-workbench: true
+
+  betterworkstations.crafting.bypass-workbench:
+    description: Allows bypassing workbench item requirement for crafting tables.
+    default: false
+
+  betterworkstations.anvil.bypass-workbench:
+    description: Allows bypassing workbench item requirement for anvils.
+
+  betterworkstations.echest.bypass-workbench:
+    description: Allows bypassing workbench item requirement for ender chests.
+    default: false
+
+  betterworkstations.echest.access-other:
+    description: Allows accessing and modifying other players' ender chests.
+    default: op
