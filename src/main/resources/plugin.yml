@@ -1,5 +1,5 @@
 name: BetterWorkStations
-version: '1.0-SNAPSHOT'
+version: '0.1.0-alpha'
 main: com.leskms.slin.betterWorkStations.BetterWorkStations
 api-version: '1.21'
 commands:
